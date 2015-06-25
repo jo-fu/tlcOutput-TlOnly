@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="tlApp">
+
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/lib/jquery-latest.min.js"></script>
+    <script src="js/lib/d3.min.js" charset="utf-8"></script>
+    <script src="js/lib/d3-timeline.js" charset="utf-8"></script>
+    <script src="js/lib/angular.js"></script>
+    <script src="js/dataWrangling.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/setupTLels.js"></script>
+    <script src="js/angularScript.js"></script>
+    <title>TLC-Output</title>
+</head>
+
+<body ng-controller="MainCtrl">
+    <!-- topBox: Timeline JS -->
+    <div id="topBox">
+        <div id="eventlabel" class="label"><p></p><span></span></div>
+        <div id="eventlabelBig" class="label"><div></div><span></span></div>
+        <div id="timeline"></div>
+        <!-- Add date + Arrow buttons -->
+        <div id="tlcTitle">
+            <h1>{{ tlDescr[0] }}</h1>
+            <h2>{{ tlDescr[1] }}</h2>
+        </div>
+    </div>
+    <div id="categoryBar">
+      <div class="trackNames">
+        <p>
+          <span ng-repeat="track in trackNames" class="track docColor_{{ track[1] }}" id="trackName_{{ track[1] }}">
+          
+          {{ track[0] }} |
+          <span title="hide this track on the timeline" class="hideTrack" ng-click="hideTrack(track[1])"></span>
+          </span>
+        </p>
+      </div>
+    </div>
+
+    <p id="tlcCredit">
+            <a href="http://www.cs.ubc.ca/group/infovis/software/TimeLineCurator/" target="_blank">
+      This timeline was created with <b>TimeLineCurator</b>.</a>
+    </p>
+
+    
+</body>
+
+</html>

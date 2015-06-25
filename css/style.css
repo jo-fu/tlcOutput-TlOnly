@@ -1,0 +1,305 @@
+html, body {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color: #fff;
+  height: 100%;
+  margin: 0; }
+
+.bgColor_0 {
+  background-color: #377eb8; }
+
+.bgColor_1 {
+  background-color: #4daf4a; }
+
+.bgColor_2 {
+  background-color: #984ea3; }
+
+.bgColor_3 {
+  background-color: #ff7f00; }
+
+.bgColor_4 {
+  background-color: #e41a1c; }
+
+.bgColor_5 {
+  background-color: #a65628; }
+
+.docColor_-1 {
+  color: #6f6f6f; }
+
+.docColor_0 {
+  color: #377eb8; }
+
+.docColor_1 {
+  color: #4daf4a; }
+
+.docColor_2 {
+  color: #984ea3; }
+
+.docColor_3 {
+  color: #ff7f00; }
+
+.docColor_4 {
+  color: #e41a1c; }
+
+.docColor_5 {
+  color: #a65628; }
+
+#topBox {
+  position: relative;
+  height: -webkit-calc(100% - 30px);
+  height: -moz-calc(100% - 30px);
+  height: calc(100% - 30px);
+  width: 100%; }
+  #topBox .label {
+    display: none;
+    position: absolute;
+    background-color: #666;
+    bottom: 100px;
+    left: 100px;
+    color: #fff; }
+  #topBox #eventlabel {
+    padding: 5px;
+    max-width: 200px;
+    width: auto;
+    height: auto; }
+  #topBox #eventlabelBig {
+    max-width: 300px;
+    width: auto;
+    height: auto;
+    padding: 10px; }
+    #topBox #eventlabelBig h1 {
+      font-size: 1em;
+      margin: 0; }
+    #topBox #eventlabelBig p {
+      font-size: .7em;
+      margin: 0; }
+  #topBox #eventlabel p {
+    margin: 0;
+    font-size: 10px;
+    line-height: 12px; }
+  #topBox .label span {
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border: 8px solid;
+    border-color: #666 transparent transparent transparent;
+    position: absolute;
+    bottom: -16px;
+    left: 4px;
+    right: auto; }
+
+#categoryBar {
+  position: absolute;
+  height: 30px;
+  width: auto;
+  bottom: 10px;
+  left: 10px;
+  margin: 0;
+  padding: 0; }
+  #categoryBar p {
+    margin: 0; }
+  #categoryBar .track {
+    float: left;
+    margin: 0;
+    width: auto;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: .9em; }
+  #categoryBar .hideTrack {
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    margin-top: 4px;
+    margin-left: -2px;
+    float: right;
+    top: 0px;
+    left: 0px;
+    background-image: url("../img/hide.png");
+    background-position: top right;
+    background-color: #555; }
+  #categoryBar .inactive .hideTrack {
+    background-image: url("../img/reload.png"); }
+  #categoryBar .inactive {
+    opacity: 0.5; }
+  #categoryBar input {
+    margin: 3px 20px 2px 2px;
+    width: 180px; }
+
+/*#descriptionBox{ height:19px; background-color:#eee; line-height:15px; border-top: 1px solid #999;
+  table{ width:100%;}
+  td{ text-align:center; font-size:12px; color:#666; }
+  td:nth-child(1){ width:30%}
+  td:nth-child(2){ width:30%}
+  td:nth-child(3){ width:40%}
+}*/
+#bottomBox {
+  position: relative;
+  height: -webkit-calc(65% - 30px);
+  height: -moz-calc(65% - 30px);
+  height: calc(65% - 30px);
+  margin-top: 30px;
+  width: 100%;
+  border-top: 1px solid #999;
+  box-sizing: border-box; }
+  #bottomBox #leftBox {
+    height: 100%;
+    width: 30%;
+    float: left;
+    overflow-y: auto;
+    border-right: 1px solid #999;
+    box-sizing: border-box;
+    position: relative; }
+  #bottomBox #centerBox {
+    height: 100%;
+    width: 30%;
+    float: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-right: 1px solid #999;
+    box-sizing: border-box; }
+  #bottomBox #rightBox {
+    height: 100%;
+    width: 40%;
+    float: left;
+    position: relative;
+    overflow-y: auto; }
+
+#topBox #tlcTitle {
+  position: absolute;
+  left: 0px;
+  top: 0px; }
+  #topBox #tlcTitle h1 {
+    margin: 10px 0 0 10px;
+    color: #666;
+    font-weight: lighter;
+    font-size: 1.8em; }
+  #topBox #tlcTitle h2 {
+    margin: 0 10px;
+    color: #999;
+    font-weight: lighter;
+    font-size: .8em; }
+
+#tlcCredit {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 0;
+  padding: 3px 5px;
+  font-size: .7em; }
+  #tlcCredit a {
+    text-decoration: none;
+    color: #666; }
+
+.todaytag {
+  font-size: 10px;
+  fill: #aaa;
+  font-style: italic; }
+
+.refline {
+  shape-rendering: crispEdges;
+  stroke: #ccc;
+  stroke-width: 1px; }
+
+.timelineItem {
+  -moz-transition: all 300ms ease-in;
+  -webkit-transition: all 300ms ease-in;
+  -o-transition: all 300ms ease-in;
+  transition: all 300ms ease-in;
+  cursor: pointer; }
+
+.selected {
+  stroke: #333;
+  stroke-width: 3px; }
+
+.selectedSec {
+  stroke: #666;
+  stroke-width: 2px; }
+
+.datelabel {
+  display: none;
+  text-align: center; }
+
+.visible {
+  display: block; }
+
+.chooseTrack, .changeTrack {
+  float: left;
+  margin: 0 5px 2px 3px;
+  padding: 2px 9px;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #fff;
+  -moz-box-shadow: 2px 2px 0px #ccc;
+  -webkit-box-shadow: 2px 2px 0px #ccc;
+  box-shadow: 2px 2px 0px #ccc; }
+
+.chosen, .changeTrack:active, .chooseTrack:active {
+  margin: 2px 3px 0 5px;
+  outline: 2px solid #efefef;
+  -moz-box-shadow: 0px 0px 0px #ccc;
+  -webkit-box-shadow: 0px 0px 0px #ccc;
+  box-shadow: 0px 0px 0px #ccc;
+  border: 2px inset #333;
+  padding: 0px 7px; }
+
+#fileinfo {
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges; }
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 10px;
+  fill: #000; }
+
+#timeline {
+  overflow-x: auto;
+  height: 100%; }
+  #timeline .timeline-label {
+    font-family: sans-serif;
+    font-size: 32px; }
+  #timeline .extent {
+    fill: none;
+    stroke: #999;
+    stroke-width: 1px;
+    stroke-dasharray: 5; }
+
+#timeline2 .axis {
+  transform: translate(0px, 30px);
+  -ms-transform: translate(0px, 30px);
+  /* IE 9 */
+  -webkit-transform: translate(0px, 30px);
+  /* Safari and Chrome */
+  -o-transform: translate(0px, 30px);
+  /* Opera */
+  -moz-transform: translate(0px, 30px);
+  /* Firefox */ }
+
+.coloredDiv {
+  height: 20px;
+  width: 20px;
+  float: left; }
+
+.nouserselect {
+  -moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.nodisplay {
+  display: none; }
+
+.notSelectable {
+  color: #ccc; }
+
+.notSelectable:hover {
+  background-color: #fff !important; }
+
+/*# sourceMappingURL=style.css.map */

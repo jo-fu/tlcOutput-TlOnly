@@ -52,16 +52,17 @@ html, body {
   #topBox .label {
     display: none;
     position: absolute;
-    background-color: #666;
     bottom: 100px;
     left: 100px;
     color: #fff; }
   #topBox #eventlabel {
+    background-color: #666;
     padding: 5px;
     max-width: 200px;
     width: auto;
     height: auto; }
   #topBox #eventlabelBig {
+    background-color: #333;
     max-width: 300px;
     width: auto;
     height: auto;
@@ -87,6 +88,8 @@ html, body {
     bottom: -16px;
     left: 4px;
     right: auto; }
+  #topBox #eventlabelBig span {
+    border-color: #333 transparent transparent transparent; }
 
 #categoryBar {
   position: absolute;

@@ -58,10 +58,10 @@ html, body{
 
 // Basic Layout
 #topBox{ position:relative; @include calc(height, "100% - 30px"); width: 100%;
-  .label{ display: none; position: absolute; background-color: #666; 
+  .label{ display: none; position: absolute;
   bottom: 100px; left: 100px; color:#fff; }
-  #eventlabel { padding: 5px; max-width: 200px; width: auto; height:auto; }
-  #eventlabelBig { max-width: 300px; width: auto; height:auto; padding: 10px;
+  #eventlabel {  background-color: #666; padding: 5px; max-width: 200px; width: auto; height:auto; }
+  #eventlabelBig {  background-color: #333; max-width: 300px; width: auto; height:auto; padding: 10px;
     h1{font-size:1em; margin:0; }
     p{font-size:.7em; margin:0;}
   }
@@ -69,6 +69,7 @@ html, body{
   .label span{ display:block; width:0; height:0; position:absolute;
     border: 8px solid; border-color: #666 transparent transparent transparent;
     position:absolute; bottom: -16px; left: 4px; right:auto; }
+  #eventlabelBig span{ border-color: #333 transparent transparent transparent; }
 }
 
 #categoryBar{ position:absolute; height:30px; width:auto; bottom:10px; left:10px; margin:0; padding:0;

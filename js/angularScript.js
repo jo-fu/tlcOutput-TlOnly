@@ -43,8 +43,8 @@ app
             $scope.makeSelection(sentNr, d, "fromCircle");
         }
 
-        $scope.updateD3Tl = function(tx, dcts, m, fct, nr) {
-            CreateTimeline.updateD3Tl(tx, dcts, m, fct, nr);
+        $scope.updateD3Tl = function(tx, dcts, m, fct) {
+            CreateTimeline.updateD3Tl(tx, dcts, m, fct);
         }
 
         $scope.hideTrack = function(v) {
@@ -199,7 +199,7 @@ app.service('CreateTimeline', function() {
     }
 
 
-    this.updateD3Tl = function(tx, dcts, action, clickFct, nr) {
+    this.updateD3Tl = function(tx, dcts, action, clickFct) {
         // Check for duplicates, but don't reorder, because that would mess up D3 elements
         var d = checkDuplicatesWithoutOrdering(tx);
 
@@ -276,14 +276,9 @@ app.service('CreateTimeline', function() {
             timexElements
                 .append('path')
                 .attr("d", function(d) {
-                    if (action == "merge") {
-                        var newpath = $("#timelineItem_" + nr).attr("d");
-                    } else {
-                        if (d.typ == "date") return "M 300 -10 m -10, 0 a 10,10 0 1,0 20,0 a 10,10 0 1,0 -20,0"
-                        else if (d.typ == "duration") return "M100 -10 L100 -5 L100 -6 L120 -5 L120 -5 L120 -10 L120 -7 L100-6 Z"
-                        else return "M " + x + " 40 L" + x + " 20 L" + x + " 40 L" + x + " 40 L" + x + " 20 Z"
-                    }
-
+                    if (d.typ == "date") return "M 300 -10 m -10, 0 a 10,10 0 1,0 20,0 a 10,10 0 1,0 -20,0"
+                    else if (d.typ == "duration") return "M100 -10 L100 -5 L100 -6 L120 -5 L120 -5 L120 -10 L120 -7 L100-6 Z"
+                    else return "M " + x + " 40 L" + x + " 20 L" + x + " 40 L" + x + " 40 L" + x + " 20 Z"
                 })
                 .attr("class", function(d) {
 
@@ -301,7 +296,17 @@ app.service('CreateTimeline', function() {
                 })
                 .attr("fill", function(d) { return getColor(d) })
                 .on("click", function(d) { clickFct(d) })
-                .on("mouseover", function(d) { $("#eventlabel p").html(d.sub); positionlabel(d); $("#eventlabel").css("display","block") })
+                .on("mouseover", function(d) {
+                    // Mouseover only when not selected
+                    var currId = $(".selected").attr("id")
+                    if(currId){ currId = currId.split("_")[1]; }
+                    if(currId != d.id){
+                        $("#eventlabel p").html(d.sub);
+                        positionlabel(d);
+                        $("#eventlabel").css("display","block")
+                    }
+                    
+                })
                 .on("mouseout", function(d) { $("#eventlabel").css("display","none") })
 
         }
@@ -491,6 +496,7 @@ app.service('DateHandling', function() {
             $("#eventlabelBig div").html("<h1>"+d.sub+"</h1><p>"+d.sent+"</p>")
             positionlabel(d,"big")
             $("#eventlabelBig").show(300)
+            $("#eventlabel").css("display","none")
         }
 
         // Highlighting Circle
@@ -617,7 +623,7 @@ app.service('DateExporting', function() {
                     }).length;
                 }
             })
-            $scope.updateD3Tl($scope.timexes, $scope.dcts, "loadData", $scope.clickingCircle)
+            $scope.updateD3Tl($scope.timexes, $scope.dcts, "loadData", $scope.clickingCircle, $scope.currId)
             $scope.docNr = $scope.fileNames.length - 1
             docNr = $scope.fileNames.length - 1
 

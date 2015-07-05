@@ -58,6 +58,7 @@ html, body {
   #topBox #eventlabel {
     background-color: #666;
     padding: 5px;
+    max-height: 400px;
     max-width: 200px;
     width: auto;
     height: auto; }
@@ -68,6 +69,10 @@ html, body {
     height: auto;
     padding: 10px; }
     #topBox #eventlabelBig h1 {
+      font-size: 1em;
+      margin: 0;
+      color: #efefef; }
+    #topBox #eventlabelBig h2 {
       font-size: 1em;
       margin: 0; }
     #topBox #eventlabelBig p {
@@ -95,8 +100,8 @@ html, body {
   position: absolute;
   height: 30px;
   width: auto;
-  top: 50%;
-  right: 50px;
+  bottom: 10px;
+  left: 15px;
   margin: 0;
   padding: 0; }
   #categoryBar p {
@@ -112,9 +117,8 @@ html, body {
     cursor: pointer;
     width: 14px;
     height: 14px;
-    margin-top: 4px;
-    margin-left: -2px;
-    float: right;
+    margin: 4px -2px 0 -2px;
+    float: left;
     top: 0px;
     left: 0px;
     background-image: url("../img/hide.png");
@@ -304,5 +308,25 @@ html, body {
 
 .notSelectable:hover {
   background-color: #fff !important; }
+
+#mediaBox {
+  margin: 5px 0; }
+  #mediaBox img {
+    max-width: 100%; }
+  #mediaBox p {
+    padding: 0;
+    margin: 0; }
+  #mediaBox .videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 */
+    padding-top: 25px;
+    height: 0; }
+  #mediaBox .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
 /*# sourceMappingURL=style.css.map */

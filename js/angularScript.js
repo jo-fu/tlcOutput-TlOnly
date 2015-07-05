@@ -148,7 +148,7 @@ app.service('CreateTimeline', function() {
             .margin({
                 left: puffer / 2,
                 right: puffer / 2,
-                top: $("#topBox").height()/2,
+                top: $("#topBox").height() - 20,
                 bottom: puffer
             })
             .tickFormat({
@@ -252,18 +252,23 @@ app.service('CreateTimeline', function() {
 
         // Check height of SVG
         if (d.length != 0) {
-            d = checkyIndizes(d, scaleFactor);
-            var newHeight = $("#topBox").height()/2
+        //     d = checkyIndizes(d, scaleFactor);
+            var newHeight = $("#topBox").height() - 50
+            
+        //     d.forEach(function(tx) {
+        //         var elTop = tx.yIndex * itemHeight + 100
+        //         if (tx.visible && newHeight < elTop) {
+        //             newHeight = elTop
+        //         }
+        //     })
 
-            d.forEach(function(tx) {
-                var elTop = tx.yIndex * itemHeight + 100
-                if (tx.visible && newHeight < elTop) {
-                    newHeight = elTop
-                }
-            })
+        //     d3.select("svg").attr("height", newHeight*2-20)
+        //     console.log("new height: "+newHeight)
 
-            d3.select("svg").attr("height", newHeight*2-20)
-            d3.select("svg").selectAll("g.axis").attr("transform", "translate(0," + (parseInt(newHeight) - 55) + ")").call(xAxis);
+            d3.select("svg")
+                .selectAll("g.axis")
+                .attr("transform", "translate(0," + newHeight + ")")
+                .call(xAxis);
             $("#timeline").scrollTop(newHeight);
         }
 
@@ -395,7 +400,7 @@ app.service('CreateTimeline', function() {
 
         /* In case there will be any difference between move and delete */
         if (action == "resize") {
-            var newHeight = $("#timeline svg").height()
+            var newHeight = $("#topBox").height()
             var newWidth = $("#topBox").width()
 
             d3.select("#timeline").select("svg")
@@ -403,7 +408,7 @@ app.service('CreateTimeline', function() {
                 .attr("height", (newHeight - 20))
 
             d3.select("#timeline").select("g.axis")
-                .attr("transform", "translate(0," + (newHeight/2 - 45) + ")")
+                .attr("transform", "translate(0," + (newHeight - 50) + ")")
         } else if (action == "recover") {}
 
         return d;
@@ -493,7 +498,7 @@ app.service('DateHandling', function() {
             // Show label
             
 
-            $("#eventlabelBig div").html("<h1>"+d.sub+"</h1><p>"+d.sent+"</p>")
+            //$("#eventlabelBig div").html("<h1>"+d.sub+"</h1><p>"+d.sent+"</p>")
             positionlabel(d,"big")
             $("#eventlabelBig").show(300)
             $("#eventlabel").css("display","none")

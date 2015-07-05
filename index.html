@@ -17,8 +17,27 @@
 <body ng-controller="MainCtrl">
     <!-- topBox: Timeline JS -->
     <div id="topBox">
-        <div id="eventlabelBig" class="label"><div></div><span></span></div>
-        <div id="eventlabel" class="label"><p></p><span></span></div>
+        <div id="eventlabelBig" class="label">
+            <h1>{{ dateInfo.title }}</h1>
+            <h2>{{ dateInfo.subtitle }}</h2>
+            <p>{{ dateInfo.sent }}</p>
+            <div id="mediaBox" ng-if="dateInfo.medium['source']!='Enter URL'">
+            <!-- Picture ? -->
+            <img ng-if="dateInfo.medium['source'].indexOf('youtube')<0" ng-src="{{ dateInfo.medium['source'] }}" title=" {{ dateInfo.medium['caption'] }} " />
+            <!-- Youtube ? -->
+            <div class="videoWrapper" ng-if="dateInfo.medium['source'].indexOf('youtube')>=0">
+                <iframe width="100%" height="" ng-src="{{ youtubelink(dateInfo.medium['source']) }}" frameborder="0" allowfullscreen><i>Waiting for Video to load...</i></iframe>
+            </div>
+            <p ng-if="dateInfo.medium['caption']!='Caption'" class="caption">
+                {{ dateInfo.medium["caption"] }}, <i>Source: {{ dateInfo.medium["credit"] }}</i>
+        </p>
+    </div>
+            <span></span>
+        </div>
+        <div id="eventlabel" class="label">
+            <p></p>
+            <span></span>
+        </div>
         
         <div id="timeline"></div>
         <!-- Add date + Arrow buttons -->
@@ -31,13 +50,15 @@
       <div class="trackNames">
         <p>
           <span ng-repeat="track in trackNames" class="track docColor_{{ track[1] }}" id="trackName_{{ track[1] }}">
+
+          <span title="hide this track on the timeline" class="hideTrack" ng-click="hideTrack(track[1])"></span>|{{ track[0] }} 
           
-          {{ track[0] }} |
-          <span title="hide this track on the timeline" class="hideTrack" ng-click="hideTrack(track[1])"></span>
           </span>
         </p>
       </div>
     </div>
+
+    
 
     <p id="tlcCredit">
             <a href="http://www.cs.ubc.ca/group/infovis/software/TimeLineCurator/" target="_blank">

@@ -67,7 +67,7 @@ function getXPos(d,beg,scale) {
 
 function getYPos(d) {
     var isDate = !isNaN(d.times[0].starting_time);
-    var pos = $("#timeline svg").height()/2 - 45;
+    var pos = $("#timeline svg").height() - 30;
     var hasCount = (d.count != 1);
     var hasyIndex = (d.yIndex != 1);
     
